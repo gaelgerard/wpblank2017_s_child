@@ -1,0 +1,28 @@
+body, .nota_bene, .contact_form #loginform-custom input[type="submit"]:hover {
+  background: #ffffff none repeat scroll 0 0;
+  color: #ff2800;
+}
+
+#wpadminbar {
+    background-color: #ff2800;
+}
+a, h1, h3, h4 {
+  color: #ff2800;
+}
+
+a.readmoreSearch:hover .bouton,
+.slicknav_menutxt,
+input[type="submit"], .button, input[type="button"], .navigation-post a, .navigation-paging a,
+div.search-toggle.active,
+div.search-toggle, button.search-submit,
+button, .bouton {
+  background-color: #ff2800;
+}
+div.search-toggle, button.search-submit {
+    /*background-image: url("img/search.png");*/
+}
+
+input[type="search"] {
+    background-color: #f2f2f2;
+}   
+ 
