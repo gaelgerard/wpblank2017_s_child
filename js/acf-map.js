@@ -21,17 +21,100 @@ function render_map( $el ) {
  
 	// vars
 	var args = {
-		zoom		: 16,
+		zoom		: 7,
 		center		: new google.maps.LatLng(0, 0),
+		mapTypeControlOptions: {
+		  mapTypeIds: [google.maps.MapTypeId.ROADMAP, google.maps.MapTypeId.HYBRID]
+		}, // here´s the array of controls
+		disableDefaultUI: true, // a way to quickly hide all controls
+		mapTypeControl: false,
+		scaleControl: false,
+		zoomControl: false,
+		zoomControlOptions: {
+		  style: google.maps.ZoomControlStyle.LARGE 
+		},
 		mapTypeId	: google.maps.MapTypeId.ROADMAP
 	};
 	var styles = [
-				  {
-					"stylers": [
-					  { "hue": "#D4EDFC" }
-					]
-				  },{
-				  }
+            {elementType: 'geometry', stylers: [{color: '#404d5c'}]},
+            {elementType: 'labels.text.stroke', stylers: [{color: '#404d5c'}]},
+            {elementType: 'labels.text.fill', stylers: [{color: '#ffffff'}]},
+            {
+              featureType: 'administrative.locality',
+              elementType: 'labels.text.fill',
+              stylers: [{color: '#ffffff'}]
+            },
+            {
+              featureType: 'poi',
+              elementType: 'labels.text.fill',
+              stylers: [{color: '#ffffff'}]
+            },
+            {
+              featureType: 'poi.park',
+              elementType: 'geometry',
+              stylers: [{color: '#263c3f'}]
+            },
+            {
+              featureType: 'poi.park',
+              elementType: 'labels.text.fill',
+              stylers: [{color: '#6b9a76'}]
+            },
+            {
+              featureType: 'road',
+              elementType: 'geometry',
+              stylers: [{color: '#38414e'}]
+            },
+            {
+              featureType: 'road',
+              elementType: 'geometry.stroke',
+              stylers: [{color: '#212a37'}]
+            },
+            {
+              featureType: 'road',
+              elementType: 'labels.text.fill',
+              stylers: [{color: '#9ca5b3'}]
+            },
+            {
+              featureType: 'road.highway',
+              elementType: 'geometry',
+              stylers: [{color: '#138c96'}]
+            },
+            {
+              featureType: 'road.highway',
+              elementType: 'geometry.stroke',
+              stylers: [{color: '#138c96'}]
+            },
+            {
+              featureType: 'road.highway',
+              elementType: 'labels.text.fill',
+              stylers: [{color: '#f3d19c'}]
+            },
+            {
+              featureType: 'transit',
+              elementType: 'geometry',
+              stylers: [{color: '#2f3948'}]
+            },
+            {
+              featureType: 'transit.station',
+              elementType: 'labels.text.fill',
+              stylers: [{color: '#d59563'}]
+            },
+            {
+              featureType: 'water',
+              elementType: 'geometry',
+              stylers: [{color: '#afdef9'}]
+            },
+            {
+              featureType: 'water',
+              elementType: 'labels.text.fill',
+              stylers: [{color: '#515c6d'}]
+            },
+            {
+              featureType: 'water',
+              elementType: 'labels.text.stroke',
+              stylers: [{color: '#afdef9'}]
+            }
+
 				]
 	// create map	        	
 	var map = new google.maps.Map( $el[0], args);
@@ -75,8 +158,12 @@ function add_marker( $marker, map ) {
 	var latlng = new google.maps.LatLng( $marker.attr('data-lat'), $marker.attr('data-lng') );
  
 	// create marker
-  var image =''+childThemeDir+'/img/marker.png';
-
+  var image_png =''+childThemeDir+'/img/marker.png';
+  var image_svg =''+childThemeDir+'/img/marker.svg';
+    var image = image_png;
+    if (Modernizr.svg) {
+        image = image_svg;
+    }
 	var marker = new google.maps.Marker({
 		position	: latlng,
 		map			: map,
@@ -138,7 +225,7 @@ function center_map( map ) {
 	{
 		// set center of map
 	    map.setCenter( bounds.getCenter() );
-	    map.setZoom( 17 );
+	    map.setZoom( 12 );
 	}
 	else
 	{

@@ -2,11 +2,10 @@
 // Enable support for Post Thumbnails, and declare sizes.
 	add_theme_support( 'post-thumbnails' );
 
-        //Polas Home
-	add_image_size( 'vignette_grid', 250, 250, true ); //pour les galeries photos et la boucle d'actus
-	add_image_size( 'vignette_grid_large', 400, 280, true ); //pour les images à la une
-	add_image_size( 'slidehome', 1200, 520, true ); //pour les slide
-	add_image_size( 'slidehome_thumb', 180, 78, true ); //pour les slide
+	add_image_size( 'slidehome', 1280, 540, true ); //pour les slide
+	add_image_size( 'imghome', 500, 500, true ); //pour les images carrées de l'accueil
+	add_image_size( 'headercateg', 1040, 410, true ); //pour les pages de catégories
+	add_image_size( 'linkcateg', 197, 197, true ); //pour les liens vers les sous catégories
 
 	/*------------Renommer Articles en réalisations-----------*/
 function revcon_change_post_label() {
@@ -50,35 +49,33 @@ function custom_adminbar_titles() {
 function client_conditional_scripts()
 {
 
-    if ( is_page('contact') || is_singular('annuaire') || is_page('points-de-vente')) {
-        wp_register_script('maps.googleapis', '//maps.googleapis.com/maps/api/js?v=3.exp&sensor=false', array(), null, true); // Conditional script(s)
+    if ( is_home() || is_front_page() || is_page('contact') || is_singular('annuaire') || is_page('points-de-vente')) {
+        wp_register_script('maps.googleapis', '//maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&key=AIzaSyBFMZEPeRe_r7ec2PUoSBbuVxuF5ULu0Jk', array(), null, true); // Conditional script(s)
         wp_enqueue_script('maps.googleapis'); // Enqueue it!
-        wp_register_script('maps.infobox', '//google-maps-utility-library-v3.googlecode.com/svn/trunk/infobox/src/infobox_packed.js', array(), null, true); // Conditional script(s)
+        wp_register_script('maps.infobox', get_stylesheet_directory_uri().'/js/infobox_packed.js', array(), null, true); // Conditional script(s)
         wp_enqueue_script('maps.infobox'); // Enqueue it!
         wp_register_script('maps.acf', get_stylesheet_directory_uri().'/js/acf-map.js', array(), null, true); // Conditional script(s)
         wp_enqueue_script('maps.acf'); // Enqueue it!
     }
-    if ( is_home() || is_front_page() ) {
         wp_register_script('jqueryflexslider', '//cdnjs.cloudflare.com/ajax/libs/flexslider/2.6.0/jquery.flexslider-min.js', array(), null, true); // Conditional script(s)
         wp_enqueue_script('jqueryflexslider'); // Enqueue it!
     wp_register_style('jqueryflexslider_css', '//cdnjs.cloudflare.com/ajax/libs/flexslider/2.6.0/flexslider.css', array(), false, 'all');
     wp_enqueue_style('jqueryflexslider_css'); // Enqueue it!
-    wp_register_script('jqueryflexslider_js_custom', get_stylesheet_directory_uri() . '/js/flexslider_custom.js', array(), null, true);
+    wp_register_script('jqueryflexslider_js_custom', get_stylesheet_directory_uri() . '/js/flexslider_custom.js', array('jquery'), null, true);
     wp_enqueue_script('jqueryflexslider_js_custom'); // Enqueue it!
-    wp_register_style('jqueryflexslider_css_custom', get_stylesheet_directory_uri() . '/css/flexslider_custom.css', array(), false, 'all');
-    wp_enqueue_style('jqueryflexslider_css_custom'); // Enqueue it!
-    wp_register_style('jqueryflexslider_css_custom_keyframes', get_stylesheet_directory_uri() . '/css/flexslider_custom_keyframes.css', array(), false, 'all');
-    wp_enqueue_style('jqueryflexslider_css_custom_keyframes'); // Enqueue it!
-    //    wp_register_script('parallaxContentSlider', get_stylesheet_directory_uri().'/js/jquery.cslider.js', array(), null, true); // Conditional script(s)
-    //    wp_enqueue_script('parallaxContentSlider'); // Enqueue it!
-    //wp_register_style('parallaxContentSlider_css', get_stylesheet_directory_uri() . '/css/parallaxContentSlider.css', array(), false, 'all');
-    //wp_enqueue_style('parallaxContentSlider_css'); // Enqueue it!
+
+    if ( is_home() || is_front_page() ) {
+//import fields
+  require_once dirname( __FILE__ ) . '/inc/acf_fields_home.php';
 
     }
 }
 add_action('wp_print_scripts', 'client_conditional_scripts'); // Add Conditional Page Scripts
-
-
+add_action( 'wp_enqueue_scripts', 'wpblank2017_s_remove_css', 25 );
+function wpblank2017_s_remove_css(){
+    wp_dequeue_style('cff-font-awesome');
+    // etc
+}
 //Enlever la mention "Protégé" devant les titres d'articles privés avec mdp
 add_filter( 'private_title_format', 'yourprefix_private_title_format' );
 add_filter( 'protected_title_format', 'yourprefix_private_title_format' );
@@ -86,3 +83,9 @@ add_filter( 'protected_title_format', 'yourprefix_private_title_format' );
 function yourprefix_private_title_format( $format ) {
     return '%s';
 }
+//Initiate ACF
+function my_acf_init() {
+	acf_update_setting('google_api_key', 'AIzaSyBFMZEPeRe_r7ec2PUoSBbuVxuF5ULu0Jk');
+}
+add_action('acf/init', 'my_acf_init');
+

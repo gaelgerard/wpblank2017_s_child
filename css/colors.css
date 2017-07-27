@@ -1,28 +1,124 @@
-body, .nota_bene, .contact_form #loginform-custom input[type="submit"]:hover {
-  background: #ffffff none repeat scroll 0 0;
-  color: #ff2800;
+/*project colors :
+
+  Bleu Logo (pre header et boutons home) : 136,178,204 - # 87b1cb à 80% selon illustrator # a0c1d6
+Bleu-gris / Secondaire (texte home + backgrounds gris header): 64,77,92 - # 3f4c5b
+Vert / bouton (urgences): 16,140,150 - # 0f8b95
+gris field newsletter 52,64,79 - # 333f4e
+gris clair fond (blocs votre séjour et enfant) 237,242,246 - # ecf1f5
+rouge urgences pre header 255,0,0 - # ff0000
+*/
+.bg-bleu {background-color: #87b1cb}
+#masthead .main-navigation ul ul, .bg-bleugris {background-color: #3f4c5b}
+.bg-vert {background-color: #0f8b95}
+.bg-grisfonce,
+
+#mailpoet_form_1, input[type="submit"], .search-header .search-header-container , .search-header input[type="search"], .search-header input[type="submit"],button.search-submit,.custom-footer input {background-color: #333f4e}
+.bg-grisclair {background-color: #ecf1f5}
+
+.txt-bleu {color: #87b1cb}
+.txt-bleu-80 {color: #a0c1d6}
+.txt-bleugris {color: #3f4c5b}
+.txt-vert {color: #0f8b95}
+.txt-grisfonce {color: #333f4e}
+.txt-grisclair {color: #ecf1f5}
+.txt-blanc h3,
+.txt-blanc li a,
+.txt-blanc {color: #ffffff}
+#main .flex-direction-nav a::before {
+   color: rgba(64,77,92, 0.8);
+}
+.addthis_32x32_style .at-icon g,
+.bg-grisclair a.download:after,
+body, .slicknav_menu  {
+  background-color: #3f4c5b;
+  fill: #3f4c5b;
+  color: #3f4c5b;
+}
+.addthis .bouton.at300b span{
+  background-color: transparent!important;
+}
+.search-header-toggle:hover,
+.bloc4 div a span:before ,
+.addthis_32x32_style .at-icon,
+a.download:after,
+.wrapper {
+  background-color: #fff;
+}
+.button:hover,
+.button:active,
+.button:focus,
+button.search-submit:hover,
+button.search-submit:active,
+button.search-submit:focus,
+.mailpoet_submit input:hover,
+.mailpoet_submit input:active,
+.mailpoet_submit input:focus,
+.bloc4 a,
+    .slicknav_nav .slicknav_row:hover,
+    .slicknav_nav a:hover,
+    .main-navigation ul li:hover,
+#header-menu{
+  background-color: #87b1cb;
+  color: #ffffff;
+}
+header#masthead, footer#colophon {
+  background-color: #3f4c5b;
+  color: #ffffff;
+}
+.custom-footer *,.cookie-message a.button,
+header#masthead a, footer#colophon a,.menu-pre-header-container li a , .search-header input[type="search"]:hover, .search-header input[type="search"]:focus{
+  color: #ffffff;
 }
 
-#wpadminbar {
-    background-color: #ff2800;
+.custom-footer a:hover, #copyright li a:hover {color: #a0c1d6!important;
 }
+.footer-menu li a:before{background-color: #fff;}
+.footer-menu li a:hover:before{background-color: #a0c1d6;}
+li.urgences-red a {color: #ff0000;}
 a, h1, h3, h4 {
-  color: #ff2800;
+  color: #3f4c5b;
 }
+a:hover, a:focus, a:active, .txt-blanc a:hover {color: #87b1cb; }
+.bloc4 a:hover, .bloc4 a:focus, .bloc4 a:active {color: #3f4c5b; }
+.bloc4 div a:hover span::before,.bloc4 div a:focus span::before,.bloc4 div a:active span::before {background-color: #3f4c5b; }
 
+a.download:hover:after {background-color: #87b1cb;}
+.bloc4 a.urgences,
 a.readmoreSearch:hover .bouton,
-.slicknav_menutxt,
-input[type="submit"], .button, input[type="button"], .navigation-post a, .navigation-paging a,
-div.search-toggle.active,
-div.search-toggle, button.search-submit,
-button, .bouton {
-  background-color: #ff2800;
-}
-div.search-toggle, button.search-submit {
-    /*background-image: url("img/search.png");*/
+.slicknav_menutxt, .button, input[type="button"], .navigation-post a, .navigation-paging a,
+button {
+  background-color: #0f8b95;
+  color: #fff;
 }
 
 input[type="search"] {
     background-color: #f2f2f2;
-}   
+}
+/*Bloc Facebook*/
+#cff {
+  background-color: #f5f5f5;
+  border: 1px solid #e9ebee;
+}
+#cff .cff-item {
+  background-color: #ffffff;
+}
+/*Reseaux sociaux*/
+.addthis .at-icon.at-icon:hover g {
+  fill: #ffffff;
+}
+.addthis .at-icon.at-icon-twitter:hover {
+background-color: #2ca8d2;
+}
+.addthis .at-icon.at-icon-linkedin:hover {
+background-color: #4498c8;
+}
+.addthis .at-icon.at-icon-facebook:hover {
+background-color: #3b5998;
+}
+.addthis .at-icon.at-icon-pinterest:hover {
+background-color: #ca2026;
+}
+.addthis .at-icon.at-icon-youtube:hover {
+background-color: #c4302b;
+}
  
