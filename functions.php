@@ -4,10 +4,13 @@
 
 	add_image_size( 'slidehome', 1280, 540, true ); //pour les slide
 	add_image_size( 'imghome', 500, 500, true ); //pour les images carrées de l'accueil
-	add_image_size( 'headercateg', 1040, 410, true ); //pour les pages de catégories
+	add_image_size( 'headercateg_tiny', 200, 79, false ); //pour les pages de catégories
+	add_image_size( 'headercateg_small', 571, 225, false ); //pour les pages de catégories
+	add_image_size( 'headercateg_medium', 849, 335, false ); //pour les pages de catégories
+	add_image_size( 'headercateg', 1040, 410, false ); //pour les pages de catégories
 	add_image_size( 'linkcateg', 197, 197, true ); //pour les liens vers les sous catégories
 
-	/*------------Renommer Articles en réalisations-----------*/
+	/*------------Renommer Articles en actu-----------*/
 function revcon_change_post_label() {
     global $menu;
     global $submenu;
@@ -89,3 +92,4 @@ function my_acf_init() {
 }
 add_action('acf/init', 'my_acf_init');
 
+  require_once dirname( __FILE__ ) . '/inc/post-type-pathology.php'; ?>

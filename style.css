@@ -10,17 +10,39 @@
 body {
 	font-family: "Source Sans Pro", sans-serif;
 }
+h1,h2 {
+	text-transform: uppercase;
+}
 h1 {
 	font-size: 2.4rem;
 	line-height: 2.88rem;
+	
 }
 h2 {
 	font-size: 1.6rem;
+	font-weight: 400;
 	line-height: 2.1rem;
 }
 p {
 	font-size: 1.3rem;
 	line-height: 1.8rem;
+}
+.hentry {
+	margin: auto;
+}
+.hentry h2:first-child {
+	margin-bottom: 2.6rem;
+}
+.hentry h2:first-child:before {
+	border: 0.2rem solid;
+	content: "";
+	display: block;
+	margin: 0 auto 1rem;
+	width: 7.2rem;
+	}
+.hentry p {
+	float: left;
+    margin: 1.1rem 0;
 }
 #logged-in {
 	display: none;
@@ -29,6 +51,16 @@ p {
 	max-width:1280px;
 	margin:0 auto;
 	position:relative;
+}
+
+#content {
+	margin: 0 auto;
+	max-width: 1069px;
+	padding: 2.8rem 1.3%;
+	}
+.home #content {
+	max-width: none;
+	padding: 0;
 }
 nav li a,
 div:not(.entry-content) a{
@@ -39,7 +71,7 @@ div:not(.entry-content) li {
 	list-style-type: none;
 }
 nav ul,
-div:not(.entry-content) ul, div:not(#header-menu) ul {
+div:not(.entry-content) ul {
 	margin: 0;
 	padding: 0;
 }
@@ -53,18 +85,18 @@ a.download:after {
     width: 1.7rem;
 	}
  /*Pre header*/
-.menu-pre-header-container ul {
-	padding: 10px 0 10px 12px;
+div.menu-pre-header-container ul {
+	padding: 1.4rem 0;
 }
 .menu-pre-header-container li {
     display: inline-block;
-    margin-right: 25px;	
+    margin-right: 2.8rem;	
 }
 .menu-pre-header-container li a {
 	font-size: 1rem;
 	font-weight: 700;
 	line-height: 1.2rem;
-	padding-left: 2rem;
+	padding-left: 2.2rem;
 	position: relative;
 	text-decoration: none;
 	text-transform: uppercase;
@@ -139,10 +171,18 @@ a.download:after {
 	top: 2rem;
 	transition: all .3s;
 }
+.slicknav_menu ul ul .menu-item-has-children:after {
+	top: 0.8rem;
+}
 .slicknav_menu .menu-item-has-children.slicknav_open:after {
 	    -ms-transform: rotate(90deg); /* IE 9 */
     -webkit-transform: rotate(90deg); /* Chrome, Safari, Opera */
     transform: rotate(90deg);
+}
+.slicknav_nav .sub-menu a:not(.slicknav_row),
+.slicknav_nav .sub-menu .slicknav_row {
+    margin: 0 2rem;
+    padding: 5px 10px;
 }
 .main-navigation ul li {
 	
@@ -196,6 +236,12 @@ button.search-submit {
 .slicknav_menu .search-header-toggle {
 	display: none;
 }
+@media (min-width:480px) {
+	#masthead .site-branding {
+		max-width: 305px;
+	}
+	
+}
 @media (min-width:767px) {
 	.custom-logo-link {
     margin: 20px 0;
@@ -203,8 +249,9 @@ button.search-submit {
 	#masthead .headerwrapper, #header-menu nav {
 		display: flex;
 		flex-flow: row wrap;
-		margin: 0 auto;
-		max-width: 1040px;
+    margin: 0 auto;
+    max-width: 1069px;
+    padding: 0 1.3%;
 		position: relative;
 	}
 	#masthead .site-branding {
@@ -216,24 +263,24 @@ button.search-submit {
 		flex: 3 1 0;
 		width: auto;
 	}
-	#masthead .main-navigation li {
+	#masthead .main-navigation  .menu-menu-principal-container li {
 		float: left;
 		padding: 1rem 1.6rem;
 		position: relative;
 	}
-	#masthead .main-navigation a{
+	#masthead .main-navigation  .menu-menu-principal-container a{
 		font-size: 1.1rem;
-		font-weight: 600;
+		font-weight: 700;
 		line-height: 1.5921rem;
 		text-transform: uppercase;
 	}
-	#masthead .main-navigation .sub-menu a{
+	#masthead .main-navigation  .menu-menu-principal-container .sub-menu a{
 		font-size: 1.3267rem;
 		font-weight: 400;
 		line-height: 1.5921rem;
 		text-transform: none;
 	}
-	#masthead .main-navigation .sub-menu .menu-item-has-children:after {
+	#masthead .main-navigation  .menu-menu-principal-container .sub-menu .menu-item-has-children:after {
 		content: "\0025BA";
 		position: absolute;
 		right: 2rem;
@@ -241,18 +288,19 @@ button.search-submit {
 		transition: all .3s;
 	}
 	.search-header-toggle {
-	    background: rgba(0, 0, 0, 0) url("img/sprite.svg") no-repeat scroll 131% 4.4%;
+		background: rgba(0, 0, 0, 0) url("img/sprite.svg") no-repeat scroll -1.8rem 0;
 		border: 0 none;
 		border-radius: 20px;
 		content: "";
 		cursor: pointer;
 		display: block;
-		height: 40px;
+		height: 2.5rem;
+		padding: 0;
 		position: absolute;
-		right: 0;
+		right: 1.4rem;
 		text-indent: -999em;
-		top: 2.8rem;
-		width: 40px;
+		top: 3.4rem;
+		width: 2.5rem;
 	}
 	.menu-menu-principal-container {
 		display: flex;
@@ -278,7 +326,7 @@ button.search-submit {
 }
 @media (min-width: 900px) {
 	
-	#masthead .main-navigation a{
+	#masthead .main-navigation  .menu-menu-principal-container a{
 		font-size: 1.3267rem;
 	}
 }
@@ -515,7 +563,7 @@ button.search-submit {
     -webkit-mask: url("img/sprite.svg") no-repeat 0 77.5% add match-source;
 	content: "";
 	display: block;
-    height: 20px;
+    height: 2.1rem;
 	left: 0;
 	position: absolute;
 	top: 13px;

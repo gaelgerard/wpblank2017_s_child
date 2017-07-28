@@ -5,7 +5,7 @@ jQuery(function ($){
       animation: "slide",
       controlNav: false,
       slideshowSpeed: 5000, 
-      pauseOnAction: false,
+      pauseOnAction: true,
   
           
     });
