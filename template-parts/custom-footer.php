@@ -7,7 +7,7 @@
         </div>
     </div>
     <div class="flex-container">
-        <div class="flex-item-center tiny-w100 pam">
+        <div class="flex-item-center w100 pam">
             <h3>Newsletter</h3>
         <?php
             $form_widget = new \MailPoet\Form\Widget();

@@ -3,7 +3,12 @@
 			{
 				register_taxonomy_for_object_type('category', 'pathology'); // Register Taxonomies for Category
 				register_taxonomy_for_object_type('post_tag', 'pathology');
+										   
+    $rewrite = array(
+        'slug'                       =>  __( 'your-pathology', 'wpblank2017_s' ),
+    );
 				register_post_type('pathology', // Register Custom Post Type
+		
 					array(
 					'labels' => array(
 						'name' => __('Pathologies', 'wpblank2017_s'), // Rename these to suit
@@ -18,8 +23,9 @@
 						'search_items' => __('Search for pathology post', 'wpblank2017_s'),
 						'not_found' => __('No pathology post found', 'wpblank2017_s'),
 						'not_found_in_trash' => __('No pathology post found in trash', 'wpblank2017_s'),
-					'parent' => __( 'pathology' )
+					'parent' => __( 'pathology' ),
 					),
+					'rewrite' => $rewrite,
 						  'menu_icon' => 'dashicons-clipboard',
 					'public' => true,
 				
@@ -36,7 +42,7 @@
 					'can_export' => true, // Allows export in Tools > Export
 					'taxonomies' => array(
 						//'post_tag',
-						//'category'
+						//'category_pathology'
 					) // Add Category and Post Tags support
 				));
 			}
@@ -44,6 +50,11 @@
 			function create_type_pathology_taxonomies() 
 			{
 			  // Add new taxonomy, make it hierarchical (like categories)
+    $rewrite = array(
+        'slug'                       =>  __( 'your-pathology', 'wpblank2017_s' ),
+        'with_front'                 => true,
+        'hierarchical'               => true,
+    );
 			  $labels = array(
 				'name' => _x( 'Pathology category  ', 'taxonomy general name' ),
 				'singular_name' => _x( 'Pathology category ', 'taxonomy singular name' , 'wpblank2017_s'),
@@ -58,14 +69,19 @@
 				'menu_name' => __( 'Pathology categories', 'wpblank2017_s' ),
 			  ); 	
 			
-			  register_taxonomy('category_pathology',array('pathology'), 
+			  register_taxonomy('category_pathology',array('pathology'),
+								
+								
 				array(
 				'hierarchical' => true,
 				'labels' => $labels,
-				'show_ui' => true,
-				'show_tagcloud' => false,
+						'public'                     => true,
+						'show_ui'                    => true,
+						'show_admin_column'          => true,
+						'show_in_nav_menus'          => true,
+						'show_tagcloud'              => true,
 				'query_var' => true,
-				'rewrite' => array( 'slug' => __( 'your-pathology', 'wpblank2017_s' )),
+				'rewrite' => array( 'slug' =>'pathologies'),
 			  ));
 			}
 					

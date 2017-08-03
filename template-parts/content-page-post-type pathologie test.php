@@ -56,11 +56,22 @@
 		<?php endif; ?>
 	</article><!-- #post-<?php the_ID(); ?> -->
 </div>
-	<?php
-		/* Restore original Post Data */
-		wp_reset_postdata();
-		// Reset Query
-		wp_reset_query();
+<div class="your-pathology">
+<?php
+if (get_field('categorie_a_afficher')) {
+$categorie = get_field('categorie_a_afficher');
+  $args = array(
+        //'category__in'     => $categorie,
+		'post_type' => 'pathology',
+		'tax_query' => array(
+			array(
+				'taxonomy' => 'category_pathology',
+				'field' => 'term_id',
+				'terms' => $categorie,
+			),
+		   ),
+    );
+}else {
 		$postID = get_the_ID();
 		$args = array(
 			'post_parent'     => $postID,
@@ -68,18 +79,20 @@
 			'order_by' => 'title',
 			'order' => 'ASC',
 		);
-		// The Query
-		$the_query = new WP_Query( $args );
-		// The Loop
-		if ( $the_query->have_posts() ) {
-	 ?>
-<aside class="your-pathology txtcenter">
-	<h1><?php echo __('Your pathology','wpblank2017_s'); ?></h1>
-		<div class="mtl w100 categories">
-		<?php
-			while ( $the_query->have_posts() ) {
-				$the_query->the_post();
-				?>
+	 
+}
+		echo '<div class="txtcenter mtl w100 categories">';
+/* Restore original Post Data */
+wp_reset_postdata();
+// Reset Query
+wp_reset_query();
+	// The Query
+	$the_query = new WP_Query( $args );
+	// The Loop
+	if ( $the_query->have_posts() ) {
+		while ( $the_query->have_posts() ) {
+			$the_query->the_post();
+			?>
 			
 			<?php
 			 echo '<div class="linkpatho inbl"><h2 class="button flex-container pas bg-bleu"><a class="flex-item-center" href="'.get_the_permalink().'">' . get_the_title() . '<span></span></a></h2></div>';	?>
@@ -95,4 +108,4 @@ wp_reset_postdata();
 // Reset Query
 wp_reset_query();
 
-?></aside>
+?></div>

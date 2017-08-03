@@ -37,7 +37,7 @@ p {
 	border: 0.2rem solid;
 	content: "";
 	display: block;
-	margin: 0 auto 1rem;
+	margin: 0 auto 1.5rem;
 	width: 7.2rem;
 	}
 .hentry p {
@@ -51,13 +51,22 @@ p {
 	max-width:1280px;
 	margin:0 auto;
 	position:relative;
+	z-index: 0;
 }
 
 #content {
 	margin: 0 auto;
 	max-width: 1069px;
-	padding: 2.8rem 1.3%;
+	padding: 2.8rem 1.3% 5rem;
+	position: relative;
 	}
+.bg-grisclair.bgcontent {
+    background-color: #ecf1f5;
+    height: 56rem;
+    position: absolute;
+    top: 50rem;
+    z-index: -1;
+}
 .home #content {
 	max-width: none;
 	padding: 0;
@@ -76,14 +85,14 @@ div:not(.entry-content) ul {
 	padding: 0;
 }
 /*Liens de téléchargement*/
-a.download:after {
+a.download::after {
     content: "";
-    height: 1.5rem;
+    height: 2rem;
     margin-left: 1rem;
-    mask: url("img/sprite.svg") no-repeat 0 100% add match-source;
-    -webkit-mask: url("img/sprite.svg") no-repeat 0 100% add match-source;
+    background: transparent url("img/sprite.svg") no-repeat 0 100%;
     width: 1.7rem;
 	}
+.bg-grisclair a.download::after {background-position: 100% 100% }
  /*Pre header*/
 div.menu-pre-header-container ul {
 	padding: 1.4rem 0;
@@ -105,14 +114,14 @@ div.menu-pre-header-container ul {
 	background: transparent url('img/sprite.svg') no-repeat;
 	content: "";
 	display: block;
-    height: 15px;
+    height: 2rem;
 	position: absolute;
 	top: 0;
-    width: 16px;
+    width: 2rem;
 }
+
 .menu-pre-header-container li.contact a:before{
     background-position: 0 -24px;
-    height: 10px;
     top: 1px;
 }
 .menu-pre-header-container li.rdv a:before{
@@ -120,9 +129,20 @@ div.menu-pre-header-container ul {
     top: -2px;
 }
 .menu-pre-header-container li.urgences-red a:before{
-	background-position:0 -2px;
+	background-position:0 0.4%;
 }
-
+/*Chrome specific with the following hack:*/
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+	.menu-pre-header-container li.contact a:before{
+		background-position: 0 5.7%;
+	}
+	.menu-pre-header-container li.rdv a:before{
+		background-position: 0 10.6%;
+	}
+	.menu-pre-header-container li.urgences-red a:before{
+		background-position:0 1.2%;
+	}
+}
 @media (max-width: 768px) {
 	.menu-pre-header-container {
 		display: none;
@@ -295,6 +315,7 @@ button.search-submit {
 		cursor: pointer;
 		display: block;
 		height: 2.5rem;
+		outline: none;
 		padding: 0;
 		position: absolute;
 		right: 1.4rem;
@@ -334,6 +355,9 @@ button.search-submit {
 .bloc4 div {
 	    hyphens: manual;
     overflow-wrap: normal;
+    transition: background 0.25s ease-in-out 0s;
+   -moz-transition: background  .25s ease-in-out 0s;
+   -webkit-transition: background  .25s ease-in-out 0s;
 }
 .bloc4 div a {
 	font-size: 1.7rem;
@@ -350,8 +374,7 @@ button.search-submit {
 	width: 18rem;
 }
 .bloc4 div a span:before {
-	 mask: url("img/sprite.svg") no-repeat 0 -23.2rem add match-source;
-    -webkit-mask: url("img/sprite.svg") no-repeat 0 -23.2rem add match-source;
+	 background: transparent url("img/sprite.svg") no-repeat 0 -23.2rem;
 	    content: "";
     display: block;
     height: 4.3rem;
@@ -360,17 +383,14 @@ button.search-submit {
 }
 .bloc4 div a.consultation span:before {
 	background-position: 0 -18.2rem;
-	mask-position: 0 -18.2rem;
 }
 .bloc4 div a.ambulatoire  span:before {
     background-position: 0 -7.6rem;
-    mask-position: 0 -7.6rem;
     height: 4.6rem;
     margin-bottom: 2.6rem;
 }
 .bloc4 div a.complete span:before {
 	background-position: 0 -13.2rem;/*coeur*/
-	mask-position: 0 -13.2rem;/*coeur*/
 }
 .bloc4 div {position: relative;}
 .bloc4 div.border80 {
@@ -380,7 +400,7 @@ button.search-submit {
     right: 0;
     top: 1rem;
 }
-.bloc4 div:first-child div.border80,
+.bloc4 div:hover div.border80,
 .bloc4 div:last-child div.border80 {
 	display: none;
 }
@@ -421,11 +441,20 @@ button.search-submit {
 		padding-bottom: 2rem;
 	}
 }
+/*Bloc home 12 youtube*/
+iframe.bloc12 {
+	height: 18rem;
+	width: 31.65rem;
+}
 /*Bloc home 13 Facebook follow*/
 .cff-likebox {
     margin: 0;
 	min-width: 99.2%;
 	width: 99.2%;
+}
+#cff {
+	height: 27rem;
+	overflow: hidden;
 }
 #cff .cff-share-container {
     display: none;
@@ -438,19 +467,19 @@ button.search-submit {
 }
 /*Bloc home 14 Googlemap*/
 .acf-map {
-	height: 210px;
+	height: 21rem;
 }
 .map-container,.acf-map {
 	max-width: 100%;
-	width: 330px;
+	width: 33rem;
 }
 @media (min-width: 576px) and (max-width: 767px) {
 	.acf-map {
-		height: 250px;
+		height: 25rem;
 	}
 .map-container,.acf-map {
 	max-width: 100%;
-		width: 576px;
+		width: 57.6rem;
 }
 	.blochome-map {
 		width: 100%!important;
@@ -458,10 +487,10 @@ button.search-submit {
 }
 @media (min-width: 767px) and (max-width: 991px) {
 	.acf-map {
-		height: 250px;
+		height: 25rem;
 	}
 .map-container,.acf-map {
-		width: 768px;
+		width: 76.8rem;
 }
 	.blochome-map {
 		width: 100%!important;
@@ -469,12 +498,12 @@ button.search-submit {
 }
 @media (max-width: 576px) {
 	.acf-map {
-		height: 250px;
-		width: 300px;
+		height: 25rem;
+		width: 30rem;
 	}
 .map-container,.acf-map {
 	max-width: 100%;
-		width: 300px;
+		width: 30rem;
 }
 	.blochome-map {
 		width: 100%!important;
@@ -483,11 +512,9 @@ button.search-submit {
 
 /*Boutons verts*/
 .button  {
-    display: inline-block;
     font-size: 1rem;
     hyphens: none;
     line-height: 1.2rem;
-    margin: 2.5rem 0 0;
     overflow-wrap: initial;
     padding: 1rem 2.5rem;
 	text-align: center;
@@ -497,7 +524,173 @@ button.search-submit {
    -moz-transition: background  .25s ease-in-out 0s;
    -webkit-transition: background  .25s ease-in-out 0s;
 }
-.at-icon.at-icon, button, .mailpoet_submit input {
+.home .site .button {
+    display: inline-block;
+    margin: 2.5rem 0 0;
+}
+.home .site .blochome-map .button {
+    margin: 0.7rem 0 0;
+}
+/*Page rubrique Gabarit 2*/
+.linkcateg.withimage h2.button {
+    font-size: 1.2729rem;
+	font-weight: 600;
+	margin-top: -1.5rem;
+	position: relative;
+}
+.linkcateg.withimage:last-child {
+	margin-left: auto;
+}
+@media (max-width:576px){
+.linkcateg.withimage:last-child {
+	margin-left: 0;
+	margin-top: 1.4rem;
+}
+	
+}
+@media (min-width:577px) and (max-width:900px){
+
+	.flex-container.rubriques {width: 100%;}
+}
+/*Page catégories gabarit 3*/
+.linkpatho h2.button a span {
+    display: flex;
+    height: 2.8rem;
+    margin: 2rem auto 0;
+    position: relative;
+    width: 2.8rem;
+}
+.linkpatho h2.button a span:after,
+.linkpatho h2.button a span:before {
+	content: "";
+	position: absolute;
+}
+.linkpatho h2.button a span:before {
+	border-bottom: 0.2rem solid;
+	height: 1.4rem;
+	top: 0.1rem;
+	width: 2.8rem;
+}
+.linkpatho h2.button a span:after {
+    border-right: 0.2rem solid;
+    content: "";
+    height: 2.8rem;
+    left: 0.1rem;
+    width: 1.4rem;
+}
+.categories.txtcenter {
+	font-size: 0;/*corrige problème de margin sur les inline blocks enfants*/
+}
+.linkpatho h2.button {
+	font-size: 1.3rem;
+	font-weight: 700;
+	line-height: 1.56rem;
+	padding: 34% 0;
+}.linkpatho h2.button a{
+	width: 100%;
+}
+.linkpatho {
+
+    width: 80%;
+}
+.page-template-page-pathology #intervention,
+.page-template-page-pathology #suites,
+.page-template-page-pathology #effets {
+    text-align: justify;
+	}
+.page-template-page-pathology .ps > .ps__scrollbar-y-rail {
+	opacity: 1;
+}
+.your-pathology .categories {
+	font-size: 0;
+}
+@media(min-width:543px) {
+	
+	.linkpatho {
+		margin: 0 1.4rem 1.4rem 0;
+		/*width: 19.5rem;*/
+		flex-grow: 1;
+		position: relative;
+		width: 50%;
+	}
+}
+@media(min-width:767px) {
+		
+	.linkpatho {
+		width: 30%;
+		    max-height: 195px;
+    overflow: hidden;
+}
+.page-template-page-pathology #intervention,
+.page-template-page-pathology #suites,
+.page-template-page-pathology #effets {
+    height: 28rem;
+    padding-right: 2.1rem;
+    position: relative;
+	}
+	.ps.ps--active-x > .ps__scrollbar-x-rail {
+		displax: none;
+	}.ps > .ps__scrollbar-y-rail > .ps__scrollbar-y,
+	.ps.ps--active-y > .ps__scrollbar-y-rail {
+		width: 0.7rem;
+	}.ps > .ps__scrollbar-y-rail > .ps__scrollbar-y,.ps.ps--active-y > .ps__scrollbar-y-rail:hover {
+		width: 1.4rem;
+	}
+	.ps > .ps__scrollbar-y-rail > .ps__scrollbar-y {
+		border-radius: 0!important;
+	}
+	.textesPatho {
+		width: 100%;
+	}
+	.textesPatho h2 {
+		font-size: 1.7rem;
+		height: 4rem;
+		line-height: 4rem;
+		margin-bottom: 3.5rem;
+	}
+	.textesPatho h2 span {
+		line-height: 2rem;
+	}
+}
+@media(min-width:991px) {
+		
+	.linkpatho {
+		margin: 0 1.4rem 1.4rem 0;
+		/*width: 19.5rem;*/
+		flex-grow: 1;
+		position: relative;
+		width: calc(100% * (1/5) - 14px - 1px);
+	}
+}
+@media(min-width:1199px) {
+	.linkpatho h2.button {
+		font-size: 1rem;
+	}
+	.your-pathology {
+		margin-top: 20rem;
+	}
+	.your-pathology .categories {
+		width: 105.1rem;
+	}
+	.textesPatho {
+		margin-left: -1.4rem;
+		margin-top: 12rem;
+		width: 104rem;
+	}
+	.page-template-page-pathology #intervention,
+	.page-template-page-pathology #suites,
+	.page-template-page-pathology #effets {
+	
+		width: 33.75rem;
+	}
+	.page-template-page-pathology #effets {
+		margin-left: 2rem;
+	}
+	
+
+}
+
+.at-icon.at-icon, button, .mailpoet_submit input, .bloc4 a {
 	
     transition: background 0.25s ease-in-out 0s;
    -moz-transition: background  .25s ease-in-out 0s;
@@ -521,10 +714,10 @@ button.search-submit {
 }
 .custom-footer .adresse address .name:before,
 .custom-footer .adresse address .phone:before {
-    background: rgba(0, 0, 0, 0) url("img/sprite.svg") no-repeat scroll 0 71%;
+    background: rgba(0, 0, 0, 0) url("img/sprite.svg") no-repeat scroll 0 72%;
     content: "";
     display: block;
-    height: 2rem;
+    height: 2.5rem;
     left: -4rem;
     position: absolute;
     width: 3.7rem;
@@ -558,32 +751,25 @@ button.search-submit {
     text-transform: uppercase;
 }
 .footer-menu li a:before{
-	 background: url("img/sprite.svg") no-repeat 0 77.5% add match-source;
-	 mask: url("img/sprite.svg") no-repeat 0 77.5% add match-source;
-    -webkit-mask: url("img/sprite.svg") no-repeat 0 77.5% add match-source;
+	 background: url("img/sprite.svg") no-repeat 0 78%;
 	content: "";
 	display: block;
-    height: 2.1rem;
+    height: 2.5rem;
 	left: 0;
 	position: absolute;
-	top: 13px;
+	top: 0.9rem;
 	width:27px;
 }
 .footer-menu li.contact a:before{
-    height: 12.4px;
 }
 .footer-menu li.rdv a:before{
     background-position: 0 83.5%;
-    mask-position: 0 83.5%;
-    height: 20px;
     top: 10px;
 }.footer-menu li.urgences a:before{
-    background-position: 0 89.2%;
-    mask-position: 0 89.2%;
-    top: 9px;
+    background-position: 0 89%;
+    top: 0.7rem;
 }.footer-menu li.partenaires a:before{
     background-position: 0 95%;
-    mask-position: 0 95%;
     top: 10px;
 }
 #copyright li a {

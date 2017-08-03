@@ -15,10 +15,19 @@
 				$countImages = count( $images );
 				if ($countImages >= 2) { //on déclenche le slider
 					?><style>
-					#content .flexslider {overflow: hidden;padding-top: 1rem; margin: 0;}
+					#content .flexslider {border: 0 none;overflow: hidden;padding-top: 1rem; margin: 0;}
 #main .flex-direction-nav a::before {
     font-size: 30px;
 }</style>
+					<script type="text/javascript"> 
+    jQuery(window).load(function() {  
+        jQuery('.flexslider').flexslider({  
+                  animation: "slide",
+					controlNav: false,
+					slideshowSpeed: 5000, 
+					pauseOnAction: true,
+       });  
+   });     </script>
 	<div class="flexslider">
 					<?php
 				}else {//on déclenche pas le slider
@@ -48,12 +57,9 @@
 	//var_dump($image);
 	?>
 			<li>
-				<article class="<?php echo $class_image; ?> <?php echo $class_texte; ?>">
-                    <div class="image">
-						<img width="<?php echo $width; ?>" height="<?php echo $height; ?>" src="<?php echo $src; ?>" alt="<?php echo $alt; ?>" srcset="<?php echo esc_attr( $img_srcset ); ?>" 	sizes="(max-width: 1039px) calc(66.6vw - 4em)  100vw, 1039px" >
-					 </div>
-                 </article>
+						<img width="<?php echo $width; ?>" height="<?php echo $height; ?>" src="<?php echo $src; ?>" alt="<?php echo $alt; ?>" srcset="<?php echo esc_attr( $img_srcset ); ?>" 	 >
             </li>
 					<?php endforeach; ?>
 				<?php endif; ?></ul>
     </div><!--ggai_wp-gallery-->
+	

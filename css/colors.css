@@ -3,51 +3,28 @@
   Bleu Logo (pre header et boutons home) : 136,178,204 - # 87b1cb à 80% selon illustrator # a0c1d6
 Bleu-gris / Secondaire (texte home + backgrounds gris header): 64,77,92 - # 3f4c5b
 Vert / bouton (urgences): 16,140,150 - # 0f8b95
-gris field newsletter 52,64,79 - # 333f4e
+gris foncé field newsletter 52,64,79 - # 333f4e
 gris clair fond (blocs votre séjour et enfant) 237,242,246 - # ecf1f5
 rouge urgences pre header 255,0,0 - # ff0000
+bouton inactif Votre pathologie 124,173,197
 */
-    .slicknav_nav .slicknav_row:hover {background-color: transparent;}
-.bg-bleu {background-color: #87b1cb}
-#masthead .main-navigation ul ul, .bg-bleugris {background-color: #3f4c5b}
-.bg-vert {background-color: #0f8b95}
-.bg-grisfonce,
-
-#mailpoet_form_1, input[type="submit"], .search-header .search-header-container , .search-header input[type="search"], .search-header input[type="submit"],button.search-submit,.custom-footer input {background-color: #333f4e}
-.bg-grisclair {background-color: #ecf1f5}
-
+.slicknav_nav .slicknav_row:hover {background-color: transparent;}
+.wrapper {background: #ffffff none repeat scroll 0 0;}
+@media(min-width:1199px) {
+.wrapper {background: linear-gradient(to bottom, #ffffff 0%, #ffffff 50rem, #ecf1f5 50rem, #ecf1f5 106rem, #ffffff 106rem, #ffffff 100%);}
+.home .wrapper {background: #ffffff none repeat scroll 0 0;}
+}
+/*Bleu Logo (pre header et boutons home) : 136,178,204 - # 87b1cb à 80% selon illustrator # a0c1d6*/
+.ps > .ps__scrollbar-y-rail > .ps__scrollbar-y {background-color: #87b1cb!important;}
+.bg-bleu {background-color: #87b1cb;}
 .txt-bleu {color: #87b1cb}
-.txt-bleu-80 {color: #a0c1d6}
-.txt-bleugris {color: #3f4c5b}
-.txt-vert {color: #0f8b95}
-.txt-grisfonce {color: #333f4e}
-.txt-grisclair {color: #ecf1f5}
-.txt-blanc h3,
-.txt-blanc li a,
-.txt-blanc {color: #ffffff}
-#main .flex-direction-nav a::before {
-   color: rgba(64,77,92, 0.8);
-}
-.addthis_32x32_style .at-icon g,
-.bg-grisclair a.download:after,
-body, .slicknav_menu  {
-  background-color: #3f4c5b;
-  fill: #3f4c5b;
-  color: #3f4c5b;
-}
-.addthis .bouton.at300b span{
-  background-color: transparent!important;
-}
-.search-header-toggle:hover,
-.bloc4 div a span:before ,
-.addthis_32x32_style .at-icon,
-a.download:after,
-.wrapper {
-  background-color: #fff;
-}
+a:hover, a:focus, a:active, .txt-blanc a:hover {color: #87b1cb; }
 .button:hover,
 .button:active,
 .button:focus,
+.hentry .button:hover,
+.your-pathology .button,
+.cookie-message a.button:hover,
 button.search-submit:hover,
 button.search-submit:active,
 button.search-submit:focus,
@@ -55,46 +32,97 @@ button.search-submit:focus,
 .mailpoet_submit input:active,
 .mailpoet_submit input:focus,
 .bloc4 a,
-    /*.slicknav_nav a:hover,*/
     .main-navigation ul li:hover,
 #header-menu{
   background-color: #87b1cb;
   color: #ffffff;
 }
+
+/*80%*/
+.txt-bleu-80 {color: #a0c1d6}
+
+
+/*Bleu-gris / Secondaire (texte home + backgrounds gris header): 64,77,92 - # 3f4c5b*/
+
+#masthead .main-navigation ul ul, .bg-bleugris {background-color: #3f4c5b}
+.txt-bleugris {color: #3f4c5b}
+.addthis_32x32_style .at-icon g,
+body, .slicknav_menu  {
+  background-color: #3f4c5b;
+  fill: #3f4c5b;
+  color: #3f4c5b;
+}
 header#masthead, footer#colophon {
   background-color: #3f4c5b;
   color: #ffffff;
 }
-.custom-footer *,.cookie-message a.button,
-header#masthead a, footer#colophon a,.menu-pre-header-container li a , .search-header input[type="search"]:hover, .search-header input[type="search"]:focus{
-  color: #ffffff;
-}
-
-.custom-footer a:hover, #copyright li a:hover {color: #a0c1d6!important;
-}
-.footer-menu li a:before{background-color: #fff;}
-.footer-menu li a:hover:before{background-color: #a0c1d6;}
-li.urgences-red a {color: #ff0000;}
 a, h1,h2, h3, h4 {
   color: #3f4c5b;
 }
-header#masthead #menu-pre-header .menu-pre-header-container li a:hover,
-a:hover, a:focus, a:active, .txt-blanc a:hover {color: #87b1cb; }
 .bloc4 a:hover, .bloc4 a:focus, .bloc4 a:active {color: #3f4c5b; }
-.bloc4 div a:hover span::before,.bloc4 div a:focus span::before,.bloc4 div a:active span::before {background-color: #3f4c5b; }
+#main .flex-direction-nav a::before {
+   color: rgba(64,77,92, 0.8);
+}
+/*Vert / bouton (urgences): 16,140,150 - # 0f8b95*/
 
-a.download:hover:after {background-color: #87b1cb;}
-.bloc4 a.urgences,
+.bg-vert {background-color: #0f8b95}
+.txt-vert {color: #0f8b95}
+.site-content .linkcateg h2.button:hover,
+.site-content .linkpatho h2.button:hover,
+.bloc4 a:hover,
 a.readmoreSearch:hover .bouton,
-.slicknav_menutxt, .button, input[type="button"], .navigation-post a, .navigation-paging a,
+.slicknav_menutxt, input[type="button"], .navigation-post a, .navigation-paging a,
+.hentry .button,
+.button,
+.cookie-message a.button,
 button {
   background-color: #0f8b95;
   color: #fff;
 }
 
-input[type="search"] {
-    background-color: #f2f2f2;
+/*gris foncé field newsletter 52,64,79 - # 333f4e*/
+
+.bg-grisfonce, #mailpoet_form_1, input[type="submit"], .search-header .search-header-container , .search-header input[type="search"], .search-header input[type="submit"],button.search-submit,.custom-footer input {background-color: #333f4e}
+.txt-grisfonce {color: #333f4e}
+
+/*gris clair fond (blocs votre séjour et enfant) 237,242,246 - # ecf1f5*/
+.ps.ps--active-x > .ps__scrollbar-x-rail, .ps.ps--active-y > .ps__scrollbar-y-rail,
+.bg-grisclair {background-color: #ecf1f5!important;}
+.txt-grisclair {color: #ecf1f5}
+
+/*Txte blanc*/
+.txt-blanc h3,
+.txt-blanc li a,
+.txt-blanc {color: #ffffff}
+.search-header-toggle:hover,
+.search-header-toggle:focus,
+.search-header-toggle:active,
+.addthis_32x32_style .at-icon {
+  background-color: #fff;
 }
+.site-content .linkcateg h2.button a,
+.site-content .linkpatho h2.button a,
+.custom-footer *,.cookie-message a.button,
+header#masthead a, footer#colophon a,.menu-pre-header-container li a , .search-header input[type="search"]:hover, .search-header input[type="search"]:focus{
+  color: #ffffff;
+}
+
+.site-content .linkcateg h2.button {background-color: rgba(124,173,197,1);}
+
+.addthis .bouton.at300b span{
+  background-color: transparent!important;
+}
+
+
+.custom-footer a:hover, #copyright li a:hover {color: #a0c1d6!important;
+}
+
+li.urgences-red a {color: #ff0000;}
+
+header#masthead #menu-pre-header .menu-pre-header-container li a:hover,
+
+
+
 /*Bloc Facebook*/
 #cff {
   background-color: #f5f5f5;
@@ -123,3 +151,48 @@ background-color: #ca2026;
 background-color: #c4302b;
 }
  
+
+::-webkit-input-placeholder { color: inherit; }
+input[type="email"].mailpoet_text::-webkit-input-placeholder,
+::-webkit-input-placeholder {
+   color: #ffffff;
+   opacity: 1;
+   -khtml-opacity: 1;
+-ms-filter:"progid:DXImageTransform.Microsoft.Alpha"(Opacity=100);
+}
+input[type="email"].mailpoet_text:focus::-webkit-input-placeholder,
+::-webkit-input-placeholder {
+   opacity: 0.2;
+   -khtml-opacity:0.2;
+-ms-filter:"progid:DXImageTransform.Microsoft.Alpha"(Opacity=20);
+}
+
+:-moz-placeholder { /* Firefox 18- */
+   color: #ffffff;
+   -moz-opacity: 1;
+}
+
+:-moz-placeholder:focus { /* Firefox 18- */
+   -moz-opacity: 0.2;
+}
+
+::-moz-placeholder {  /* Firefox 19+ */
+   color: #ffffff;
+   opacity: 1;
+}
+
+::-moz-placeholder:focus {  /* Firefox 19+ */
+   opacity: 0.2;
+}
+
+:-ms-input-placeholder {  
+   color: #ffffff;
+   -ms-filter:"progid:DXImageTransform.Microsoft.Alpha"(Opacity=100);
+filter: progid:DXImageTransform.Microsoft.Alpha(opacity=100);
+filter:alpha(opacity=100);
+}
+:-ms-input-placeholder {  
+   -ms-filter:"progid:DXImageTransform.Microsoft.Alpha"(Opacity=20);
+filter: progid:DXImageTransform.Microsoft.Alpha(opacity=20);
+filter:alpha(opacity=20);
+}

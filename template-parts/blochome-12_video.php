@@ -27,7 +27,7 @@
 			 
 			 
 			 // add extra attributes to iframe html
-			 $attributes = 'frameborder="0"';
+			 $attributes = 'frameborder="0" class="bloc12"';
 			 
 			 $iframe = str_replace('></iframe>', ' ' . $attributes . '></iframe>', $iframe);
 			 

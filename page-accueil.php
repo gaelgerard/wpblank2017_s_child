@@ -79,12 +79,12 @@ get_header(); ?>
 				 </div>
 			</div>
 			<div class="flex-container clear pam">
-				<div class="w33 tiny-w100 medium-w50 small-w50 pbs pal tiny-pa0">
+				<div class="w33 tiny-w100 medium-w50 small-w50 pbs pal tiny-pa0 mbm">
 				<?php
 					get_template_part( 'template-parts/blochome', '12_video' );
 				 ?>
 				 </div>
-				<div class="w33 tiny-w100 medium-w50 small-w50 pal tiny-pa0">
+				<div class="w33 tiny-w100 medium-w50 small-w50 pal tiny-pa0 mbm">
 				<?php
 					get_template_part( 'template-parts/blochome', '13_follow' );
 				 ?>
