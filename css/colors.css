@@ -10,10 +10,6 @@ bouton inactif Votre pathologie 124,173,197
 */
 .slicknav_nav .slicknav_row:hover {background-color: transparent;}
 .wrapper {background: #ffffff none repeat scroll 0 0;}
-@media(min-width:1199px) {
-.wrapper {background: linear-gradient(to bottom, #ffffff 0%, #ffffff 50rem, #ecf1f5 50rem, #ecf1f5 106rem, #ffffff 106rem, #ffffff 100%);}
-.home .wrapper {background: #ffffff none repeat scroll 0 0;}
-}
 /*Bleu Logo (pre header et boutons home) : 136,178,204 - # 87b1cb à 80% selon illustrator # a0c1d6*/
 .ps > .ps__scrollbar-y-rail > .ps__scrollbar-y {background-color: #87b1cb!important;}
 .bg-bleu {background-color: #87b1cb;}
@@ -69,6 +65,7 @@ a, h1,h2, h3, h4 {
 .txt-vert {color: #0f8b95}
 .site-content .linkcateg h2.button:hover,
 .site-content .linkpatho h2.button:hover,
+.linkcateg.withimage a:hover ~ h2.button,
 .bloc4 a:hover,
 a.readmoreSearch:hover .bouton,
 .slicknav_menutxt, input[type="button"], .navigation-post a, .navigation-paging a,
@@ -86,6 +83,7 @@ button {
 .txt-grisfonce {color: #333f4e}
 
 /*gris clair fond (blocs votre séjour et enfant) 237,242,246 - # ecf1f5*/
+.main-content::after,
 .ps.ps--active-x > .ps__scrollbar-x-rail, .ps.ps--active-y > .ps__scrollbar-y-rail,
 .bg-grisclair {background-color: #ecf1f5!important;}
 .txt-grisclair {color: #ecf1f5}
@@ -95,8 +93,6 @@ button {
 .txt-blanc li a,
 .txt-blanc {color: #ffffff}
 .search-header-toggle:hover,
-.search-header-toggle:focus,
-.search-header-toggle:active,
 .addthis_32x32_style .at-icon {
   background-color: #fff;
 }

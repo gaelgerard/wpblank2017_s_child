@@ -10,7 +10,7 @@ jQuery(function ($){
 			
             
 			$('.search-header-toggle').click(function() {
-				$(this).parent('.search-header').toggleClass('active');
+				$('.search-header').toggleClass('active');
 				});
     });
 // media query event handler

@@ -78,7 +78,7 @@ get_header(); ?>
 					</div>
 				 </div>
 			</div>
-			<div class="flex-container clear pam">
+			<div class="flex-container clear">
 				<div class="w33 tiny-w100 medium-w50 small-w50 pbs pal tiny-pa0 mbm">
 				<?php
 					get_template_part( 'template-parts/blochome', '12_video' );

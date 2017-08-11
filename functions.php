@@ -77,11 +77,6 @@ function client_conditional_scripts()
     //wp_register_script('jqueryflexslider_js_custom', get_stylesheet_directory_uri() . '/js/flexslider_custom.js', array('jquery'), null, true);
     //wp_enqueue_script('jqueryflexslider_js_custom'); // Enqueue it!
 
-    if ( is_home() || is_front_page() ) {
-//import fields
-  require_once dirname( __FILE__ ) . '/inc/acf_fields_home.php';
-
-    }
 }
 add_action('wp_print_scripts', 'client_conditional_scripts'); // Add Conditional Page Scripts
 add_action( 'wp_enqueue_scripts', 'wpblank2017_s_remove_css', 25 );
@@ -102,4 +97,16 @@ function my_acf_init() {
 }
 add_action('acf/init', 'my_acf_init');
 
-  //require_once dirname( __FILE__ ) . '/inc/post-type-pathology.php'; ?>
+  //require_once dirname( __FILE__ ) . '/inc/post-type-pathology.php'; 
+
+if ( is_home() || is_front_page() ) {
+//import fields
+  require_once dirname( __FILE__ ) . '/inc/acf_fields_home.php';
+}
+if ( !is_home() && !is_front_page() ) {
+  require_once dirname( __FILE__ ) . '/inc/acf_fields_diapo.php';
+}
+if ( is_page_template('page-pathology.php') ) {
+  require_once dirname( __FILE__ ) . '/inc/acf_fields_pathology.php';
+}
+  require_once dirname( __FILE__ ) . '/inc/acf_fields_praticiens.php';

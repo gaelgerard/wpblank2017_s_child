@@ -1,17 +1,19 @@
 
 		<?php
-			if( get_field('videos') ): 
-					while( has_sub_field('videos') ):
-					$url = get_sub_field('url');
-					?>
-					<div class="video pas">
-						<?php echo html_entity_decode($url) ?>
-					</div>
-					<?php endwhile; ?>
-				<?php endif; ?>
-		<?php
-			if( get_field('gallery') ): 
+			$post_parent = $post->post_parent;
+			//echo $post_parent;
+			if( get_field('gallery') ){ 
 				$images = get_field('gallery');
+			}elseif (!get_field('gallery')) {
+				if ( $post_parent == 4 || $post_parent == 5){ 
+					$images = get_field('gallery', 4);
+				}if ( $post_parent == 12){ 
+					$images = get_field('gallery', 12);
+				}else {
+					$images = get_field('gallery', 3);
+					
+				}
+			}
 				$countImages = count( $images );
 				if ($countImages >= 2) { //on déclenche le slider
 					?><style>
@@ -52,14 +54,15 @@
                 $alt = htmlentities($alt);
                 $alt = str_replace('-', ' ',$alt);
 				$alt = ucfirst($alt);
-				$img_srcset = wp_calculate_image_srcset(array($width,$height), $src, $imageMeta );						
+				$img_srcset = wp_calculate_image_srcset(array($width,$height), $src, $imageMeta );			
+				$img_sizes = wp_calculate_image_sizes(array($width,$height), $src, $imageMeta );					
 
 	//var_dump($image);
 	?>
 			<li>
-						<img width="<?php echo $width; ?>" height="<?php echo $height; ?>" src="<?php echo $src; ?>" alt="<?php echo $alt; ?>" srcset="<?php echo esc_attr( $img_srcset ); ?>" 	 >
+						<img width="<?php echo $width; ?>" height="<?php echo $height; ?>" src="<?php echo $src; ?>" alt="<?php echo $alt; ?>" srcset="<?php echo esc_attr( $img_srcset ); ?>" sizes="<?php echo esc_attr( $img_sizes ); ?>"	 >
             </li>
 					<?php endforeach; ?>
-				<?php endif; ?></ul>
+			</ul>
     </div><!--ggai_wp-gallery-->
 	
